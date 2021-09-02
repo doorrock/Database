@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table {
+        width: 60%;
+        border: 1px solid #444444;
+    }
+    th, td{
+        border: 1px solid #444444;
+        padding: 10px;
+    }
+</style>
+<body><center>
+<form class="form-company" method="POST">
+    <div><center>
+        <img class="fit-picture"
+             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjgYRPRqN9jC68TGIa04jhc8gawaVIxTCxQ3r6jCHk2aarzAgj5w&s"
+             alt="no image" width="400"/>
+    </center></div>
+    <h1>company information</h1>
+    <h2>for admin</h2>
+    {% csrf_token %}
+    <div>
+        <label for="inputName" class="sr-only">name</label>
+        <input type="text" id="name" name="name" class="form-control" autofocus=""/>
+    </div>
+    <div>
+        <label for="inputOwner" class="sr-only">owner  </label>
+        <input type="text" id="owner" name="owner" class="form-control" autofocus=""/>
+    </div>
+    <div>
+        <label for="inputDate" class="sr-only">date</label>
+        <input type="text" id="date" name="date" class="form-control" autofocus=""/>
+    </div>
+    <div>
+        <label for="inputMarketC" class="sr-only">marketC</label>
+        <input type="text" id="marketC" name="marketC" class="form-control" autofocus=""/>
+    </div>
+    <div>
+        <label for="inputIntro" class="sr-only">intro</label>
+        <p><textarea id="intro" name="intro"></textarea></p>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary">등록</button>
+    </div>
+</form>
+    <button onclick="location.href='../'">뒤로</button>
+<div>
+    <h1>list of companies</h1>
+</div>
+<form>
+    <div class="container">
+        <table class="table table-striped">
+            <thread>
+                <tr>
+                    <td><center><B>name</B></center></td>
+                    <td><center><B>owner</B></center></td>
+                    <td><center><B>date</B></center></td>
+                    <td><center><B>marketC</B></center></td>
+                    <td><center><B>intro</B></center></td>
+                </tr>
+            </thread>
+            <tbody>
+                {% for Company in companies %}
+                <tr>
+                    <td><center>{{ Company.name }}</center></td>
+                    <td><center>{{ Company.owner }}</center></td>
+                    <td><center>{{ Company.date|date:"Y-m-d" }}</center></td>
+                    <td><center>{{ Company.marketC }}</center></td>
+                    <td><center>{{ Company.intro }}</center></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</form>
+</center>
+</body>
+</html>

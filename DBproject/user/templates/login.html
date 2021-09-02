@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form class="form-signin" method="POST" action="/user/login/">
+    <div><center>
+        <img class="fit-picture"
+             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjgYRPRqN9jC68TGIa04jhc8gawaVIxTCxQ3r6jCHk2aarzAgj5w&s"
+             alt="no image" width="400"/>
+    </center></div>
+    <div style="font-size: 1.5em; color: #050">
+        <h1><center>login</center></h1>
+    </div>
+    {% csrf_token %}
+    <div style="font-size: 1.0em"><center>
+        <label for="inputID" class="sr-only">ID</label>
+        <input type="text" id="user_id" name="user_id" class="form-control" placeholder="ID" autofocus=""/>
+    </center></div>
+    <div style="font-size: 1.0em"><center>
+        <label for="inputPW" class="sr-only">PW</label>
+        <input type="text" id="password" name="password" class="form-control" placeholder="PW" autofocus=""/>
+    </center></div>
+    <div><center>
+        <button type="button" onclick="location.href='/user/signup/'" id="signup">signup</button>
+        <button type="submit">login</button>
+    </center></div>
+</form>
+</body>
+</html>

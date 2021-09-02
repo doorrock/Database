@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><center>
+    <div><center>
+        <img class="fit-picture"
+             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjgYRPRqN9jC68TGIa04jhc8gawaVIxTCxQ3r6jCHk2aarzAgj5w&s"
+             alt="no image" width="400"/>
+    </center></div>
+    <h1>Option</h1>
+    <h2>for admin</h2>
+    {% csrf_token %}
+    <div>
+        <button class="btn btn-primary"
+                style="margin-bottom: 20px; color: #fff; background: gray; font-size:2em; border-radius:0.2em; padding:5px 20px"
+                onClick="location.href='/superuser/hire_info/'">모집 정보</button>
+    </div>
+    <div>
+        <button class="btn btn-primary"
+                style="margin-bottom: 20px; color: #fff; background: gray; font-size:2em; border-radius:0.2em; padding:5px 20px"
+                onClick="location.href='/superuser/company_info/'">기업 정보</button>
+    </div>
+</center></body>
+</html>

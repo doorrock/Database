@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><a>현재 접속된 아이디: {{request.session.user_id}}</a><center>
+    <div><center>
+        <img class="fit-picture"
+             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjgYRPRqN9jC68TGIa04jhc8gawaVIxTCxQ3r6jCHk2aarzAgj5w&s"
+             alt="no image" width="400"/>
+    </center></div>
+<h1>list of hire_info</h1>
+<h2>- user -</h2>
+    <div>
+        <button style="margin-bottom: 20px"
+                onClick="location.href='/user/user_main/'; return false;">메인</button>
+        <button style="margin-bottom: 30px"
+               onClick="location.href='/company/{{request.session.user_id}}/'">나의 관심 기업</button>
+    </div>
+<style>
+    table {
+        width: 60%;
+        border: 1px solid #444444;
+    }
+    th, td{
+        border: 1px solid #444444;
+        padding: 10px;
+    }
+</style>
+<form>
+    <div class="container">
+        <table class="table table-striped">
+            <thread>
+                <tr>
+                    <td><center><B>affilate</B></center></td>
+                    <td><center><B>c-name</B></center></td>
+                    <td><center><B>type</B></center></td>
+                    <td><center><B>start_date</B></center></td>
+                    <td><center><B>end_date</B></center></td>
+                    <td><center><B>관심</B></center></td>
+<!--                    <td><center><B>보기</B></center></td>-->
+                </tr>
+            </thread>
+            <tbody>
+                {% for aff in affilates %}
+                <form method="POST"> {% csrf_token %}
+                    <tr>
+                        <td><center>{{ aff.affilate }}</a></center></td>
+                        <input type="hidden" name="affilate" value="{{ aff.affilate }}">
+                        <td><center>{{ aff.c_name }}</center></td>
+                        <input type="hidden" name="c_name" value="{{ aff.c_name }}">
+                        <td><center>{{ aff.type }}</center></td>
+                        <input type="hidden" name="type" value="{{ aff.type }}">
+                        <td><center>{{ aff.start_date|date:"Y-m-d" }}</center></td>
+                        <input type="hidden" name="start_date" value="{{ aff.start_date | date:"Y-m-d" }}">
+                        <td><center>{{ aff.end_date|date:"Y-m-d"}}</center></td>
+                        <input type="hidden" name="end_date" value="{{ aff.end_date | date:"Y-m-d" }}">
+                        <td><center><button type="submit">추가</button></center></td>
+                    </tr>
+                </form>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</form>
+</center></body>
+</html>

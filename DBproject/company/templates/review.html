@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table {
+        width: 60%;
+        border: 1px solid #444444;
+    }
+    th, td{
+        border: 1px solid #444444;
+        padding: 10px;
+    }
+</style>
+<body><a>현재 접속된 아이디: {{request.session.user_id}}</a>
+<form class="form-review" method="POST"><center>
+    <div><center>
+        <img class="fit-picture"
+             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjgYRPRqN9jC68TGIa04jhc8gawaVIxTCxQ3r6jCHk2aarzAgj5w&s"
+             alt="no image" width="400"/>
+    </center></div>
+    <div>
+        <h1>Review</h1>
+    </div>
+    <div>
+        <button style="margin-bottom: 20px"
+                onClick="location.href='/user/user_main/'; return false;">메인</button>
+    </div>
+    {% csrf_token %}
+    <div>
+        <label for="inputReview" class="sr-only">Review</label>
+        <p><textarea id="review" name="review"></textarea></p>
+    </div>
+    <div>
+        <label for="inputAffilate" class="sr-only">Affilate</label>
+        <p><input type="text" id="affilate" name="affilate" class="form-control" autofocus=""/></p>
+    </div>
+    <div style="margin-bottom: 30px">
+        <button type="submit">등록</button>
+    </div>
+</center></form>
+
+<form><center>
+    <div class="container">
+        <table class="table table-striped">
+            <thread>
+                <tr>
+                    <td><center><B>user_id</B></center></td>
+                    <td><center><B>aff_name</B></center></td>
+                    <td><center><B>review</B></center></td>
+                </tr>
+            </thread>
+            <tbody>
+                {% for review in reviews %}
+                <tr>
+                    <td><center>{{ review.user_id }}</center></td>
+                    <td><center>{{ review.aff_name }}</center></td>
+                    <td><center>{{ review.review }}</center></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</center>
+</form>
+</body>
+</html>

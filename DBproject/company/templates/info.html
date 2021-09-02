@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table {
+        width: 60%;
+        border: 1px solid #444444;
+    }
+    th, td{
+        border: 1px solid #444444;
+        padding: 10px;
+    }
+</style>
+<body><a>현재 접속된 아이디: {{request.session.user_id}}</a>
+
+<form><center>
+    <div><center>
+        <img class="fit-picture"
+             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjgYRPRqN9jC68TGIa04jhc8gawaVIxTCxQ3r6jCHk2aarzAgj5w&s"
+             alt="no image" width="400"/>
+    </center></div>
+    <div>
+        <h1>company information</h1>
+    </div>
+    <div>
+        <button style="margin-bottom: 20px"
+                onClick="location.href='/user/user_main/'; return false;">메인</button>
+    </div>
+    <div class="container">
+        <table class="table table-striped">
+            <thread>
+                <tr>
+                    <td><center><B>name</B></center></td>
+                    <td><center><B>owner</B></center></td>
+                    <td><center><B>date</B></center></td>
+                    <td><center><B>marketC</B></center></td>
+                    <td><center><B>intro</B></center></td>
+                </tr>
+            </thread>
+            <tbody>
+                {% for Company in companies %}
+                <tr>
+                    <td><center>{{ Company.name }}</center></td>
+                    <td><center>{{ Company.owner }}</center></td>
+                    <td><center>{{ Company.date }}</center></td>
+                    <td><center>{{ Company.marketC }}</center></td>
+                    <td><center>{{ Company.intro }}</center></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</center>
+</form>
+</body>
+</html>

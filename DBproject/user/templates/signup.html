@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form class="form-signup" method="POST" action="/user/signup/">
+    <div><center>
+        <img class="fit-picture"
+             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjgYRPRqN9jC68TGIa04jhc8gawaVIxTCxQ3r6jCHk2aarzAgj5w&s"
+             alt="no image" width="400"/>
+    </center></div>
+    {% csrf_token %}
+    <div style="font-size: 1.5em; color: #050">
+        <h1><center>signup</center></h1>
+    </div>
+    <div><center>
+        <label for="inputID" class="sr-only">ID</label>
+        <input type="text" id="user_id" name="user_id" class="form-control" placeholder="ID" autofocus=""/>
+    </center></div>
+    <div><center>
+        <label for="inputPW" class="sr-only">PW</label>
+        <input type="text" id="password" name="password" class="form-control" placeholder="PW" autofocus=""/>
+    </center></div>
+    <div><center>
+        <label for="inputNAME" class="sr-only">NAME</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="NAME" autofocus=""/>
+    </center></div>
+    <div><center>
+        <label for="inputNICK" class="sr-only">NICK</label>
+        <input type="text" id="nick" name="nick" class="form-control" placeholder="NICK" autofocus=""/>
+    </center></div>
+    <div><center>
+        <label for="inputAGE" class="sr-only">AGE</label>
+        <input type="text" id="age" name="age" class="form-control" placeholder="AGE" autofocus=""/>
+    </center></div>
+    <div><center>
+        <label for="inputGender" class="sr-only">GENDER</label>
+        <input type="text" id="gender" name="gender" class="form-control" placeholder="Male / Female" autofocus=""/>
+    </center></div>
+    <div><center>
+        <label for="inputSCORE" class="sr-only">SCORE</label>
+        <input type="text" id="score" name="score" class="form-control" placeholder="SCORE" autofocus=""/>
+    </center></div>
+    <div><center>
+        <button type="submit" class="btn btn-primary">GO</button>
+    </center></div>
+</form>
+</body>
+</html>
